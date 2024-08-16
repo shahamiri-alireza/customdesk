@@ -489,7 +489,7 @@ class _RemotePageState extends State<RemotePage>
     paints.add(
       Positioned(
         top: 10,
-        right: 10,
+        left: 10,
         child: _buildRawTouchAndPointerRegion(
             QualityMonitor(_ffi.qualityMonitorModel), null, null),
       ),
@@ -667,7 +667,7 @@ class _ImagePaintState extends State<ImagePaint> {
       if (true) {
         // both "textureId.value != -1" and "true" seems ok
         children.add(Positioned(
-          left: (displays[i].x - rect.left) * s + offset.dx,
+          right: (displays[i].x - rect.right) * s + offset.dx,
           top: (displays[i].y - rect.top) * s + offset.dy,
           width: displays[i].width * s,
           height: displays[i].height * s,

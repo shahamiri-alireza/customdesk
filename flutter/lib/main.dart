@@ -321,7 +321,11 @@ void _runApp(
       builder: (context, child) {
         child = _keepScaleBuilder(context, child);
         child = botToastBuilder(context, child);
-        return child;
+
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: child,
+        );
       },
     ),
   ));
@@ -445,7 +449,9 @@ class _AppState extends State<App> {
                   if (isLinux) {
                     child = buildVirtualWindowFrame(context, child);
                   }
-                  return child;
+
+                  return Directionality(
+                      textDirection: TextDirection.rtl, child: child);
                 },
         ),
       );

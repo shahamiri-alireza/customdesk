@@ -138,7 +138,7 @@ class _PortForwardPageState extends State<PortForwardPage>
 
   buildTunnel(BuildContext context) {
     text(String label) => Expanded(
-        child: Text(translate(label)).marginOnly(left: _kTextLeftMargin));
+        child: Text(translate(label)).marginOnly(right: _kTextLeftMargin));
 
     return Theme(
       data: Theme.of(context)
@@ -238,7 +238,7 @@ class _PortForwardPageState extends State<PortForwardPage>
   Widget buildTunnelDataRow(BuildContext context, _PortForward pf, int index) {
     text(String label) => Expanded(
         child: Text(label, style: const TextStyle(fontSize: 20))
-            .marginOnly(left: _kTextLeftMargin));
+            .marginOnly(right: _kTextLeftMargin));
 
     return Container(
       height: _kRowHeight,
@@ -281,12 +281,12 @@ class _PortForwardPageState extends State<PortForwardPage>
 
   buildRdp(BuildContext context) {
     text1(String label) => Expanded(
-        child: Text(translate(label)).marginOnly(left: _kTextLeftMargin));
+        child: Text(translate(label)).marginOnly(right: _kTextLeftMargin));
     text2(String label) => Expanded(
             child: Text(
           label,
           style: const TextStyle(fontSize: 20),
-        ).marginOnly(left: _kTextLeftMargin));
+        ).marginOnly(right: _kTextLeftMargin));
     return Theme(
       data: Theme.of(context)
           .copyWith(backgroundColor: Theme.of(context).colorScheme.background),
@@ -313,7 +313,7 @@ class _PortForwardPageState extends State<PortForwardPage>
                 child: Row(children: [
                   Expanded(
                     child: Align(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.centerRight,
                       child: SizedBox(
                         width: 120,
                         child: ElevatedButton(
@@ -323,7 +323,7 @@ class _PortForwardPageState extends State<PortForwardPage>
                             translate('New RDP'),
                           ),
                         ).marginSymmetric(vertical: 10),
-                      ).marginOnly(left: 20),
+                      ).marginOnly(right: 20),
                     ),
                   ),
                   const SizedBox(

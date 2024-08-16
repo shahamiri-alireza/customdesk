@@ -225,14 +225,14 @@ class _DesktopSettingPageState extends State<DesktopSettingPage>
           height: 62,
           child: Text(
             translate('Settings'),
-            textAlign: TextAlign.left,
+            textAlign: TextAlign.right,
             style: const TextStyle(
               color: _accentColor,
               fontSize: _kTitleFontSize,
               fontWeight: FontWeight.w400,
             ),
           ),
-        ).marginOnly(left: 20, top: 10),
+        ).marginOnly(right: 20, top: 10),
         const Spacer(),
       ],
     );
@@ -276,7 +276,7 @@ class _DesktopSettingPageState extends State<DesktopSettingPage>
               selected ? tab.selected : tab.unselected,
               color: selected ? _accentColor : null,
               size: 20,
-            ).marginOnly(left: 13, right: 10),
+            ).marginOnly(right: 13, left: 10),
             Text(
               translate(tab.label),
               style: TextStyle(
@@ -527,10 +527,10 @@ class _GeneralState extends State<_General> {
                           ? const TextStyle(
                               decoration: TextDecoration.underline)
                           : null,
-                    )).marginOnly(left: 10),
+                    )).marginOnly(right: 10),
               ),
             ],
-          ).marginOnly(left: _kContentHMargin),
+          ).marginOnly(right: _kContentHMargin),
         Row(
           children: [
             Text('${translate(showRootDir ? "Outgoing" : "Directory")}:'),
@@ -545,7 +545,7 @@ class _GeneralState extends State<_General> {
                     style: user_dir_exists
                         ? const TextStyle(decoration: TextDecoration.underline)
                         : null,
-                  )).marginOnly(left: 10),
+                  )).marginOnly(right: 10),
             ),
             ElevatedButton(
                     onPressed: isOptionFixed(kOptionVideoSaveDirectory)
@@ -567,9 +567,9 @@ class _GeneralState extends State<_General> {
                             }
                           },
                     child: Text(translate('Change')))
-                .marginOnly(left: 5),
+                .marginOnly(right: 5),
           ],
-        ).marginOnly(left: _kContentHMargin),
+        ).marginOnly(right: _kContentHMargin),
       ]);
     });
   }
@@ -601,7 +601,7 @@ class _GeneralState extends State<_General> {
           bind.mainChangeLanguage(lang: key);
         },
         enabled: !isOptFixed,
-      ).marginOnly(left: _kContentHMargin);
+      ).marginOnly(right: _kContentHMargin);
     });
   }
 }
@@ -673,7 +673,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                   Checkbox(
                           value: has2fa.value,
                           onChanged: enabled ? onChanged : null)
-                      .marginOnly(right: 5),
+                      .marginOnly(left: 5),
                   Expanded(
                       child: Text(
                     translate('enable-2fa-title'),
@@ -686,7 +686,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
         onTap: () {
           onChanged(!has2fa.value);
         },
-      ).marginOnly(left: _kCheckBoxLeftMargin);
+      ).marginOnly(right: _kCheckBoxLeftMargin);
     }
 
     return tmpWrapper();
@@ -748,7 +748,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
             onChanged: (mode) async {
               await bind.mainSetOption(key: kOptionAccessMode, value: mode);
               setState(() {});
-            }).marginOnly(left: _kContentHMargin),
+            }).marginOnly(right: _kContentHMargin),
         Column(
           children: [
             _OptionCheckBox(
@@ -846,7 +846,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                                   context, onChanged != null)),
                         ),
                       ],
-                    ).paddingOnly(right: 10),
+                    ).paddingOnly(left: 10),
                     onTap: () => onChanged?.call(value),
                   ))
               .toList();
@@ -873,7 +873,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
               values: modeValues,
               initialKey: modeInitialKey,
               onChanged: (key) => model.setApproveMode(key),
-            ).marginOnly(left: _kContentHMargin),
+            ).marginOnly(right: _kContentHMargin),
             if (usePassword) radios[0],
             if (usePassword)
               _SubLabeledWidget(
@@ -890,7 +890,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
               _SubButton('Set permanent password', setPasswordDialog,
                   permEnabled && !locked),
             // if (usePassword)
-            //   hide_cm(!locked).marginOnly(left: _kContentHSubMargin - 6),
+            //   hide_cm(!locked).marginOnly(right: _kContentHSubMargin - 6),
             if (usePassword) radios[2],
           ]);
         })));
@@ -927,14 +927,14 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
               Checkbox(
                       value: value,
                       onChanged: enabled ? (_) => onChanged(!value) : null)
-                  .marginOnly(right: 5),
+                  .marginOnly(left: 5),
               Expanded(
                 child: Text(translate('Enable RDP session sharing'),
                     style:
                         TextStyle(color: disabledTextColor(context, enabled))),
               )
             ],
-          ).marginOnly(left: _kCheckBoxLeftMargin),
+          ).marginOnly(right: _kCheckBoxLeftMargin),
           onTap: enabled ? () => onChanged(!value) : null),
     );
   }
@@ -976,7 +976,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 12, horizontal: 12),
                     ),
-                  ).marginOnly(right: 15),
+                  ).marginOnly(left: 15),
                 ),
                 Obx(() => ElevatedButton(
                       onPressed: applyEnabled.value &&
@@ -1030,13 +1030,13 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                   Checkbox(
                           value: hasWhitelist.value,
                           onChanged: enabled && !isOptFixed ? onChanged : null)
-                      .marginOnly(right: 5),
+                      .marginOnly(left: 5),
                   Offstage(
                     offstage: !hasWhitelist.value,
                     child: MouseRegion(
                       child: const Icon(Icons.warning_amber_rounded,
                               color: Color.fromARGB(255, 255, 204, 0))
-                          .marginOnly(right: 5),
+                          .marginOnly(left: 5),
                       cursor: SystemMouseCursors.click,
                     ),
                   ),
@@ -1054,7 +1054,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                 onChanged(!hasWhitelist.value);
               }
             : null,
-      ).marginOnly(left: _kCheckBoxLeftMargin);
+      ).marginOnly(right: _kCheckBoxLeftMargin);
     }
 
     return tmpWrapper();
@@ -1085,7 +1085,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                             onChanged: enabled && enableHideCm
                                 ? onHideCmChanged
                                 : null)
-                        .marginOnly(right: 5),
+                        .marginOnly(left: 5),
                     Expanded(
                       child: Text(
                         translate('Hide connection management window'),
@@ -1136,7 +1136,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 12, horizontal: 12),
                   ),
-                ).marginOnly(right: 15),
+                ).marginOnly(left: 15),
               ),
               Obx(() => ElevatedButton(
                     onPressed:
@@ -1494,12 +1494,12 @@ class _DisplayState extends State<_Display> {
             Checkbox(
                     value: value,
                     onChanged: isOptFixed ? null : (_) => onChanged(!value))
-                .marginOnly(right: 5),
+                .marginOnly(left: 5),
             Expanded(
               child: Text(translate(label)),
             )
           ],
-        ).marginOnly(left: _kCheckBoxLeftMargin),
+        ).marginOnly(right: _kCheckBoxLeftMargin),
         onTap: isOptFixed ? null : () => onChanged(!value));
   }
 
@@ -1545,7 +1545,7 @@ class _AccountState extends State<_Account> {
   Widget useInfo() {
     text(String key, String value) {
       return Align(
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.centerRight,
         child: SelectionArea(child: Text('${translate(key)}: $value'))
             .marginSymmetric(vertical: 4),
       );
@@ -1559,7 +1559,7 @@ class _AccountState extends State<_Account> {
               // text('Group', gFFI.groupModel.groupName.value),
             ],
           ),
-        )).marginOnly(left: 18, top: 16);
+        )).marginOnly(right: 18, top: 16);
   }
 }
 
@@ -1603,12 +1603,12 @@ class _CheckboxState extends State<_Checkbox> {
           Checkbox(
             value: value,
             onChanged: (_) => onChanged(!value),
-          ).marginOnly(right: 5),
+          ).marginOnly(left: 5),
           Expanded(
             child: Text(translate(widget.label)),
           )
         ],
-      ).marginOnly(left: _kCheckBoxLeftMargin),
+      ).marginOnly(right: _kCheckBoxLeftMargin),
       onTap: () => onChanged(!value),
     );
   }
@@ -1754,7 +1754,7 @@ class _AboutState extends State<_About> {
                     )),
                   ).marginSymmetric(vertical: 4.0)
                 ],
-              ).marginOnly(left: _kContentHMargin)
+              ).marginOnly(right: _kContentHMargin)
             ]),
           ));
     });
@@ -1790,12 +1790,12 @@ Widget _Card(
                     )),
                     ...?title_suffix
                   ],
-                ).marginOnly(left: _kContentHMargin, top: 10, bottom: 10),
+                ).marginOnly(right: _kContentHMargin, top: 10, bottom: 10),
                 ...children
-                    .map((e) => e.marginOnly(top: 4, right: _kContentHMargin)),
+                    .map((e) => e.marginOnly(top: 4, left: _kContentHMargin)),
               ],
             ).marginOnly(bottom: 10),
-          ).marginOnly(left: _kCardLeftMargin, top: 15),
+          ).marginOnly(right: _kCardLeftMargin, top: 15),
         ),
       ),
     ],
@@ -1845,10 +1845,10 @@ Widget _OptionCheckBox(BuildContext context, String label, String key,
           Checkbox(
                   value: ref.value,
                   onChanged: enabled && !isOptFixed ? onChanged : null)
-              .marginOnly(right: 5),
+              .marginOnly(left: 5),
           Offstage(
             offstage: !ref.value || checkedIcon == null,
-            child: checkedIcon?.marginOnly(right: 5),
+            child: checkedIcon?.marginOnly(left: 5),
           ),
           Expanded(
               child: Text(
@@ -1857,7 +1857,7 @@ Widget _OptionCheckBox(BuildContext context, String label, String key,
           ))
         ],
       ),
-    ).marginOnly(left: _kCheckBoxLeftMargin),
+    ).marginOnly(right: _kCheckBoxLeftMargin),
     onTap: enabled && !isOptFixed
         ? () {
             onChanged(!ref.value);
@@ -1890,10 +1890,10 @@ Widget _Radio<T>(BuildContext context,
                   style: TextStyle(
                       fontSize: _kContentFontSize,
                       color: disabledTextColor(context, onChange2 != null)))
-              .marginOnly(left: 5),
+              .marginOnly(right: 5),
         ),
       ],
-    ).marginOnly(left: _kRadioLeftMargin),
+    ).marginOnly(right: _kRadioLeftMargin),
     onTap: () => onChange2?.call(value),
   );
 }
@@ -1981,7 +1981,7 @@ Widget _Button(String label, Function() onPressed,
   }
   return Row(children: [
     child,
-  ]).marginOnly(left: _kContentHMargin);
+  ]).marginOnly(right: _kContentHMargin);
 }
 
 // ignore: non_constant_identifier_names
@@ -1995,7 +1995,7 @@ Widget _SubButton(String label, Function() onPressed, [bool enabled = true]) {
         ).marginSymmetric(horizontal: 15),
       ),
     ],
-  ).marginOnly(left: _kContentHSubMargin);
+  ).marginOnly(right: _kContentHSubMargin);
 }
 
 // ignore: non_constant_identifier_names
@@ -2012,7 +2012,7 @@ Widget _SubLabeledWidget(BuildContext context, String label, Widget child,
       ),
       child,
     ],
-  ).marginOnly(left: _kContentHSubMargin);
+  ).marginOnly(right: _kContentHSubMargin);
 }
 
 Widget _lock(
@@ -2038,7 +2038,7 @@ Widget _lock(
                               Icons.security_sharp,
                               size: 20,
                             ),
-                            Text(translate(label)).marginOnly(left: 5),
+                            Text(translate(label)).marginOnly(right: 5),
                           ]).marginSymmetric(vertical: 2)),
                   onPressed: () async {
                     bool checked = await callMainCheckSuperUserPermission();
@@ -2047,7 +2047,7 @@ Widget _lock(
                     }
                   },
                 ).marginSymmetric(horizontal: 2, vertical: 4),
-              ).marginOnly(left: _kCardLeftMargin),
+              ).marginOnly(right: _kCardLeftMargin),
             ).marginOnly(top: 10),
           ),
         ],
@@ -2067,10 +2067,10 @@ _LabeledTextField(
           constraints: const BoxConstraints(minWidth: 140),
           child: Text(
             '${translate(label)}:',
-            textAlign: TextAlign.right,
+            textAlign: TextAlign.left,
             style: TextStyle(
                 fontSize: 16, color: disabledTextColor(context, enabled)),
-          ).marginOnly(right: 10)),
+          ).marginOnly(left: 10)),
       Expanded(
         child: TextField(
             controller: controller,
@@ -2223,12 +2223,12 @@ void changeSocks5Proxy() async {
                 ConstrainedBox(
                   constraints: const BoxConstraints(minWidth: 140),
                   child: Align(
-                      alignment: Alignment.centerRight,
+                      alignment: Alignment.centerLeft,
                       child: Row(
                         children: [
                           Text(
                             translate('Server'),
-                          ).marginOnly(right: 4),
+                          ).marginOnly(left: 4),
                           Tooltip(
                             waitDuration: Duration(milliseconds: 0),
                             message: translate("default_proxy_tip"),
@@ -2243,7 +2243,7 @@ void changeSocks5Proxy() async {
                             ),
                           ),
                         ],
-                      )).marginOnly(right: 10),
+                      )).marginOnly(left: 10),
                 ),
                 Expanded(
                   child: TextField(
@@ -2263,8 +2263,8 @@ void changeSocks5Proxy() async {
                     constraints: const BoxConstraints(minWidth: 140),
                     child: Text(
                       '${translate("Username")}:',
-                      textAlign: TextAlign.right,
-                    ).marginOnly(right: 10)),
+                      textAlign: TextAlign.left,
+                    ).marginOnly(left: 10)),
                 Expanded(
                   child: TextField(
                     controller: userController,
@@ -2279,8 +2279,8 @@ void changeSocks5Proxy() async {
                     constraints: const BoxConstraints(minWidth: 140),
                     child: Text(
                       '${translate("Password")}:',
-                      textAlign: TextAlign.right,
-                    ).marginOnly(right: 10)),
+                      textAlign: TextAlign.left,
+                    ).marginOnly(left: 10)),
                 Expanded(
                   child: Obx(() => TextField(
                         obscureText: obscure.value,

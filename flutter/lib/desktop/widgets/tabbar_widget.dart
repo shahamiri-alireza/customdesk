@@ -410,10 +410,10 @@ class DesktopTab extends StatelessWidget {
                             child: const Text(
                               "RustDesk",
                               style: TextStyle(fontSize: 13),
-                            ).marginOnly(left: 2))
+                            ).marginOnly(right: 2))
                       ]).marginOnly(
-                        left: 5,
-                        right: 10,
+                        right: 5,
+                        left: 10,
                       ),
                     ),
                     Expanded(
@@ -459,7 +459,7 @@ class DesktopTab extends StatelessWidget {
           showClose: showClose,
           onClose: onWindowCloseButton,
           labelGetter: labelGetter,
-        ).paddingOnly(left: 10)
+        ).paddingOnly(right: 10)
       ],
     );
   }
@@ -1011,7 +1011,7 @@ class _TabState extends State<_Tab> with RestorationMixin {
           color: isSelected
               ? MyTheme.tabbar(context).selectedTabIconColor
               : MyTheme.tabbar(context).unSelectedTabIconColor,
-        ).paddingOnly(right: 5));
+        ).paddingOnly(left: 5));
     final labelWidget = Obx(() {
       return ConstrainedBox(
           constraints: BoxConstraints(maxWidth: widget.maxLabelWidth ?? 200),
@@ -1111,7 +1111,7 @@ class _TabState extends State<_Tab> with RestorationMixin {
                                   tabSelected: isSelected,
                                   onClose: () => widget.onClose(),
                                 )))
-                          ])).paddingOnly(left: 10, right: 5),
+                          ])).paddingOnly(right: 10, left: 5),
                   Offstage(
                     offstage: !showDivider,
                     child: VerticalDivider(
@@ -1167,7 +1167,7 @@ class _CloseButton extends StatelessWidget {
                   : MyTheme.tabbar(context).unSelectedIconColor,
             ),
           ),
-        )).paddingOnly(left: 10);
+        )).paddingOnly(right: 10);
   }
 }
 

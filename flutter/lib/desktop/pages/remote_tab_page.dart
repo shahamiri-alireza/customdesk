@@ -187,11 +187,11 @@ class _ConnectionTabPageState extends State<ConnectionTabPage> {
                     'assets/${connectionType.secure.value}${connectionType.direct.value}.svg',
                     width: themeConf.iconSize,
                     height: themeConf.iconSize,
-                  ).paddingOnly(right: 5),
+                  ).paddingOnly(left: 5),
                 ),
                 label,
                 unreadMessageCountBuilder(UnreadChatCountState.find(key))
-                    .marginOnly(left: 4),
+                    .marginOnly(right: 4),
               ],
             );
 
@@ -243,7 +243,7 @@ class _ConnectionTabPageState extends State<ConnectionTabPage> {
   // Note: Some dup code to ../widgets/remote_toolbar
   Widget _tabMenuBuilder(String key, CancelFunc cancelFunc) {
     final List<MenuEntryBase<String>> menu = [];
-    const EdgeInsets padding = EdgeInsets.only(left: 8.0, right: 5.0);
+    const EdgeInsets padding = EdgeInsets.only(right: 8.0, left: 5.0);
     final remotePage = tabController.state.value.tabs
         .firstWhere((tab) => tab.key == key)
         .page as RemotePage;

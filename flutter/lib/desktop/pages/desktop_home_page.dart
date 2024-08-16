@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:convert';
 
@@ -74,11 +75,11 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     final isOutgoingOnly = bind.isOutgoingOnly();
     final children = <Widget>[
       if (!isOutgoingOnly) buildPresetPasswordWarning(),
-      if (bind.isCustomClient())
-        Align(
-          alignment: Alignment.center,
-          child: loadPowered(context),
-        ),
+      // if (bind.isCustomClient())
+      //   Align(
+      //     alignment: Alignment.center,
+      //     child: loadPowered(context),
+      //   ),
       Align(
         alignment: Alignment.center,
         child: loadLogo(),
@@ -116,7 +117,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
               });
             }
           },
-        ).marginOnly(bottom: 6, right: 6)
+        ).marginOnly(bottom: 6, left: 6)
       ]);
     }
     final textColor = Theme.of(context).textTheme.titleLarge?.color;
@@ -181,7 +182,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
   buildIDBoard(BuildContext context) {
     final model = gFFI.serverModel;
     return Container(
-      margin: const EdgeInsets.only(left: 20, right: 11),
+      margin: const EdgeInsets.only(right: 20, left: 11),
       height: 57,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -193,9 +194,9 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           ).marginOnly(top: 5),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 7),
+              padding: const EdgeInsets.only(right: 7),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
                     height: 25,
@@ -277,7 +278,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     RxBool editHover = false.obs;
     final textColor = Theme.of(context).textTheme.titleLarge?.color;
     return Container(
-      margin: EdgeInsets.only(left: 20.0, right: 16, top: 13, bottom: 13),
+      margin: EdgeInsets.only(right: 20.0, left: 16, top: 13, bottom: 13),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.baseline,
         textBaseline: TextBaseline.alphabetic,
@@ -289,7 +290,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 7),
+              padding: const EdgeInsets.only(right: 7),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -338,7 +339,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                               ))),
                         ),
                         onHover: (value) => refreshHover.value = value,
-                      ).marginOnly(right: 8, top: 4),
+                      ).marginOnly(left: 8, top: 4),
                       if (!bind.isDisableSettings())
                         InkWell(
                           child: Tooltip(
@@ -350,7 +351,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                                     ? textColor
                                     : Color(0xFFDDDDDD),
                                 size: 22,
-                              ).marginOnly(right: 8, top: 4),
+                              ).marginOnly(left: 8, top: 4),
                             ),
                           ),
                           onTap: () => DesktopSettingPage.switch2page(
@@ -372,7 +373,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     final isOutgoingOnly = bind.isOutgoingOnly();
     return Padding(
       padding:
-          const EdgeInsets.only(left: 20.0, right: 16, top: 16.0, bottom: 5),
+          const EdgeInsets.only(right: 20.0, left: 16, top: 16.0, bottom: 5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -381,7 +382,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
             children: [
               if (!isOutgoingOnly)
                 Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.centerRight,
                   child: Text(
                     translate("Your Desktop"),
                     style: Theme.of(context).textTheme.titleLarge,
@@ -522,7 +523,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     }
     if (bind.isIncomingOnly()) {
       return Align(
-        alignment: Alignment.centerRight,
+        alignment: Alignment.centerLeft,
         child: OutlinedButton(
           onPressed: () {
             SystemNavigator.pop(); // Close the application
@@ -568,11 +569,11 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           child: Container(
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
                 colors: [
-                  Color.fromARGB(255, 226, 66, 188),
-                  Color.fromARGB(255, 244, 114, 124),
+                  MyTheme.accent,
+                  MyTheme.accent80,
                 ],
               )),
               padding: EdgeInsets.all(20),
@@ -641,7 +642,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         if (closeButton != null && closeButton == true)
           Positioned(
             top: 18,
-            right: 0,
+            left: 0,
             child: IconButton(
               icon: Icon(
                 Icons.close,

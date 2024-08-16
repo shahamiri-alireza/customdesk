@@ -188,7 +188,7 @@ class _FileManagerPageState extends State<FileManagerPage>
                           child: SvgPicture.asset("assets/arrow.svg",
                               colorFilter: svgColor(
                                   Theme.of(context).tabBarTheme.labelColor)),
-                        ).paddingOnly(left: 15),
+                        ).paddingOnly(right: 15),
                         const SizedBox(
                           width: 16.0,
                         ),
@@ -238,7 +238,7 @@ class _FileManagerPageState extends State<FileManagerPage>
                               Offstage(
                                 offstage: item.state != JobState.inProgress,
                                 child: LinearPercentIndicator(
-                                  padding: EdgeInsets.only(right: 15),
+                                  padding: EdgeInsets.only(left: 15),
                                   animateFromLastPercent: true,
                                   center: Text(
                                     '${(item.finishedSize / item.totalSize * 100).toStringAsFixed(0)}%',
@@ -271,7 +271,7 @@ class _FileManagerPageState extends State<FileManagerPage>
                               ),
                             ),
                             MenuButton(
-                              padding: EdgeInsets.only(right: 15),
+                              padding: EdgeInsets.only(left: 15),
                               child: SvgPicture.asset(
                                 "assets/close.svg",
                                 colorFilter: svgColor(Colors.white),
@@ -298,7 +298,7 @@ class _FileManagerPageState extends State<FileManagerPage>
     return PreferredSize(
       preferredSize: const Size(200, double.infinity),
       child: Container(
-          margin: const EdgeInsets.only(top: 16.0, bottom: 16.0, right: 16.0),
+          margin: const EdgeInsets.only(top: 16.0, bottom: 16.0, left: 16.0),
           padding: const EdgeInsets.all(8.0),
           child: Obx(
             () => jobController.jobTable.isEmpty
@@ -507,7 +507,7 @@ class _FileManagerViewState extends State<FileManagerView> {
                       Text(isLocal
                               ? translate("Local Computer")
                               : translate("Remote Computer"))
-                          .marginOnly(left: 8.0)
+                          .marginOnly(right: 8.0)
                     ],
                   ),
                   preferredSize: Size(double.infinity, 70))
@@ -519,7 +519,7 @@ class _FileManagerViewState extends State<FileManagerView> {
                 children: [
                   MenuButton(
                     padding: EdgeInsets.only(
-                      right: 3,
+                      left: 3,
                     ),
                     child: RotatedBox(
                       quarterTurns: 2,
@@ -643,7 +643,7 @@ class _FileManagerViewState extends State<FileManagerView> {
               }),
               MenuButton(
                 padding: EdgeInsets.only(
-                  left: 3,
+                  right: 3,
                 ),
                 onPressed: () {
                   controller.refresh();
@@ -668,7 +668,7 @@ class _FileManagerViewState extends State<FileManagerView> {
                   children: [
                     MenuButton(
                       padding: EdgeInsets.only(
-                        right: 3,
+                        left: 3,
                       ),
                       onPressed: () {
                         controller.goToHomeDirectory();
@@ -706,7 +706,7 @@ class _FileManagerViewState extends State<FileManagerView> {
                                 Text(
                                   translate("Create Folder"),
                                 ).paddingOnly(
-                                  left: 10,
+                                  right: 10,
                                 ),
                               ],
                             ),
@@ -774,8 +774,8 @@ class _FileManagerViewState extends State<FileManagerView> {
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                           isLocal
-                              ? EdgeInsets.only(left: 10)
-                              : EdgeInsets.only(right: 10)),
+                              ? EdgeInsets.only(right: 10)
+                              : EdgeInsets.only(left: 10)),
                       backgroundColor: MaterialStateProperty.all(
                         selectedItems.items.isEmpty
                             ? MyTheme.accent80
@@ -793,7 +793,7 @@ class _FileManagerViewState extends State<FileManagerView> {
                     icon: isLocal
                         ? Text(
                             translate('Send'),
-                            textAlign: TextAlign.right,
+                            textAlign: TextAlign.left,
                             style: TextStyle(
                               color: selectedItems.items.isEmpty
                                   ? Theme.of(context).brightness ==
@@ -813,7 +813,7 @@ class _FileManagerViewState extends State<FileManagerView> {
                                       ? MyTheme.grayBg
                                       : MyTheme.darkGray
                                   : Colors.white),
-                              alignment: Alignment.bottomRight,
+                              alignment: Alignment.bottomLeft,
                             ),
                           ),
                     label: isLocal
@@ -1140,11 +1140,11 @@ class _FileManagerViewState extends State<FileManagerView> {
   void _onSelectedChanged(SelectedItems selectedItems, List<Entry> entries,
       Entry entry, bool isLocal) {
     final isCtrlDown = RawKeyboard.instance.keysPressed
-            .contains(LogicalKeyboardKey.controlLeft) ||
+            .contains(LogicalKeyboardKey.controlRight) ||
         RawKeyboard.instance.keysPressed
             .contains(LogicalKeyboardKey.controlRight);
     final isShiftDown = RawKeyboard.instance.keysPressed
-            .contains(LogicalKeyboardKey.shiftLeft) ||
+            .contains(LogicalKeyboardKey.shiftRight) ||
         RawKeyboard.instance.keysPressed
             .contains(LogicalKeyboardKey.shiftRight);
     if (isCtrlDown) {
@@ -1256,7 +1256,7 @@ class _FileManagerViewState extends State<FileManagerView> {
                         name,
                         style: headerTextStyle,
                         overflow: TextOverflow.ellipsis,
-                      ).marginOnly(left: 4),
+                      ).marginOnly(right: 4),
                     ),
                     ascending.value != null
                         ? Icon(
@@ -1470,7 +1470,7 @@ class _FileManagerViewState extends State<FileManagerView> {
               border: InputBorder.none,
               isDense: true,
               prefix: Padding(
-                padding: EdgeInsets.only(left: 4.0),
+                padding: EdgeInsets.only(right: 4.0),
               ),
             ),
             controller: textController,

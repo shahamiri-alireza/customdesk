@@ -73,7 +73,7 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
                   child: Text(translate("Start service"),
                       style: TextStyle(
                           decoration: TextDecoration.underline, fontSize: em)))
-              .marginOnly(left: em),
+              .marginOnly(right: em),
         );
 
     setupServerWidget() => Flexible(
@@ -143,8 +143,8 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
                 basicWidget(),
                 Align(
                         child: startServiceWidget(),
-                        alignment: Alignment.centerLeft)
-                    .marginOnly(top: 2.0, left: 22.0),
+                        alignment: Alignment.centerRight)
+                    .marginOnly(top: 2.0, right: 22.0),
               ],
             )
           : basicWidget()),
@@ -288,7 +288,7 @@ class _ConnectionPageState extends State<ConnectionPage>
             Divider().paddingOnly(right: 12),
             Expanded(child: PeerTabPage()),
           ],
-        ).paddingOnly(left: 12.0)),
+        ).paddingOnly(right: 12.0)),
         if (!isOutgoingOnly) const Divider(height: 1),
         if (!isOutgoingOnly) OnlineStatusWidget()
       ],
@@ -423,6 +423,7 @@ class _ConnectionPageState extends State<ConnectionPage>
                     fieldTextEditingController.selection =
                         TextSelection(baseOffset: 0, extentOffset: textLength);
                     return Obx(() => TextField(
+                          textDirection: TextDirection.ltr,
                           autocorrect: false,
                           enableSuggestions: false,
                           keyboardType: TextInputType.visiblePassword,
@@ -473,7 +474,7 @@ class _ConnectionPageState extends State<ConnectionPage>
                     maxHeight = maxHeight.clamp(0, 200);
 
                     return Align(
-                      alignment: Alignment.topLeft,
+                      alignment: Alignment.topRight,
                       child: Container(
                           decoration: BoxDecoration(
                             boxShadow: [

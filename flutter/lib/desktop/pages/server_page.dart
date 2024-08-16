@@ -178,7 +178,7 @@ class ConnectionManagerState extends State<ConnectionManager> {
                         waitDuration: Duration(seconds: 1),
                         child: label),
                     unreadMessageCountBuilder(client?.unreadChatMessageCount)
-                        .marginOnly(left: 4),
+                        .marginOnly(right: 4),
                   ],
                 );
               },
@@ -211,7 +211,7 @@ class ConnectionManagerState extends State<ConnectionManager> {
                                   child: Container(
                                       decoration: BoxDecoration(
                                           border: Border(
-                                              right: BorderSide(
+                                              left: BorderSide(
                                                   color: Theme.of(context)
                                                       .dividerColor))),
                                       child: buildSidePage()),
@@ -397,8 +397,8 @@ class _CmHeaderState extends State<_CmHeader>
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
         gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
           colors: [
             Color(0xff00bfe1),
             Color(0xff0071ff),
@@ -409,8 +409,8 @@ class _CmHeaderState extends State<_CmHeader>
       padding: EdgeInsets.only(
         top: 10.0,
         bottom: 10.0,
-        left: 10.0,
-        right: 5.0,
+        right: 10.0,
+        left: 5.0,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -431,7 +431,7 @@ class _CmHeaderState extends State<_CmHeader>
                 fontSize: 55,
               ),
             ),
-          ).marginOnly(right: 10.0),
+          ).marginOnly(left: 10.0),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -464,7 +464,7 @@ class _CmHeaderState extends State<_CmHeader>
                               : translate("Connected")
                           : "${translate("Request access to your device")}...",
                       style: TextStyle(color: Colors.white),
-                    ).marginOnly(right: 8.0),
+                    ).marginOnly(left: 8.0),
                     if (client.authorized)
                       Obx(
                         () => Text(
@@ -576,7 +576,7 @@ class _PrivilegeBoardState extends State<_PrivilegeBoard> {
             translate("Permissions"),
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
-          ).marginOnly(left: 4.0, bottom: 8.0),
+          ).marginOnly(right: 4.0, bottom: 8.0),
           Expanded(
             child: GridView.count(
               crossAxisCount: crossAxisCount,
@@ -992,7 +992,7 @@ class _CmControlPanel extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Offstage(offstage: icon == null, child: icon).marginOnly(right: 5),
+            Offstage(offstage: icon == null, child: icon).marginOnly(left: 5),
             textWidget,
           ],
         ),
@@ -1143,7 +1143,7 @@ class __FileTransferLogPageState extends State<_FileTransferLogPage> {
                                   SizedBox(
                                     width: 50,
                                     child: iconLabel(item),
-                                  ).paddingOnly(left: 15),
+                                  ).paddingOnly(right: 15),
                                   const SizedBox(
                                     width: 16.0,
                                   ),
@@ -1196,7 +1196,7 @@ class __FileTransferLogPageState extends State<_FileTransferLogPage> {
                                                 JobState.inProgress,
                                             child: LinearPercentIndicator(
                                               padding:
-                                                  EdgeInsets.only(right: 15),
+                                                  EdgeInsets.only(left: 15),
                                               animateFromLastPercent: true,
                                               center: Text(
                                                 '${(item.finishedSize / item.totalSize * 100).toStringAsFixed(0)}%',
