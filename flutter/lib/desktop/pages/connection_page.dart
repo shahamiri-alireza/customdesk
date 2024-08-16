@@ -111,19 +111,6 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: 8,
-              width: 8,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                color: _svcStopped.value ||
-                        stateGlobal.svcStatus.value == SvcStatus.connecting
-                    ? kColorWarn
-                    : (stateGlobal.svcStatus.value == SvcStatus.ready
-                        ? Color.fromARGB(255, 50, 190, 166)
-                        : Color.fromARGB(255, 224, 79, 95)),
-              ),
-            ).marginSymmetric(horizontal: em),
-            Container(
               width: isIncomingOnly ? 226 : null,
               child: _buildConnStatusMsg(),
             ),
@@ -131,24 +118,32 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
             if (!isIncomingOnly) startServiceWidget(),
             // ready && public
             // No need to show the guide if is custom client.
-            if (!isIncomingOnly) setupServerWidget(),
+            // if (!isIncomingOnly) setupServerWidget(),
           ],
-        );
+        ).paddingOnly(left: 15, right: 15);
 
-    return Container(
-      height: height,
-      child: Obx(() => isIncomingOnly
-          ? Column(
-              children: [
-                basicWidget(),
-                Align(
-                        child: startServiceWidget(),
-                        alignment: Alignment.centerRight)
-                    .marginOnly(top: 2.0, right: 22.0),
-              ],
-            )
-          : basicWidget()),
-    ).paddingOnly(right: isIncomingOnly ? 8 : 0);
+    // New background color based on the condition
+    return Obx(() => Container(
+          height: height,
+          color: _svcStopped.value ||
+                  stateGlobal.svcStatus.value == SvcStatus.connecting
+              ? kColorWarn
+              : (stateGlobal.svcStatus.value == SvcStatus.ready
+                  ? Color.fromARGB(255, 50, 190, 166)
+                  : Color.fromARGB(
+                      255, 224, 79, 95)), // Apply the background color here
+          child: Obx(() => isIncomingOnly
+              ? Column(
+                  children: [
+                    basicWidget(),
+                    Align(
+                            child: startServiceWidget(),
+                            alignment: Alignment.centerRight)
+                        .marginOnly(top: 2.0, right: 22.0),
+                  ],
+                )
+              : basicWidget()),
+        ).paddingOnly(right: isIncomingOnly ? 8 : 0));
   }
 
   _buildConnStatusMsg() {
