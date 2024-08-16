@@ -339,21 +339,30 @@ class _ConnectionPageState extends State<ConnectionPage>
                           .titleLarge
                           ?.merge(TextStyle(height: 1)),
                     ).marginOnly(right: 4),
-                    Tooltip(
-                      waitDuration: Duration(milliseconds: 0),
-                      message: translate("id_input_tip"),
-                      child: Icon(
-                        Icons.help_outline_outlined,
-                        size: 16,
-                        color: Theme.of(context)
-                            .textTheme
-                            .titleLarge
-                            ?.color
-                            ?.withOpacity(0.5),
-                      ),
-                    ),
+                    // Tooltip(
+                    //   waitDuration: Duration(milliseconds: 0),
+                    //   message: translate("id_input_tip"),
+                    //   child: Icon(
+                    //     Icons.help_outline_outlined,
+                    //     size: 16,
+                    //     color: Theme.of(context)
+                    //         .textTheme
+                    //         .titleLarge
+                    //         ?.color
+                    //         ?.withOpacity(0.5),
+                    //   ),
+                    // ),
                   ],
                 )),
+              ],
+            ).marginOnly(bottom: 15),
+            Row(
+              children: [
+                Text(
+                  translate("desk_connect_tip"),
+                  overflow: TextOverflow.clip,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ],
             ).marginOnly(bottom: 15),
             Row(
@@ -429,8 +438,8 @@ class _ConnectionPageState extends State<ConnectionPage>
                           keyboardType: TextInputType.visiblePassword,
                           focusNode: fieldFocusNode,
                           style: const TextStyle(
-                            fontFamily: 'WorkSans',
-                            fontSize: 22,
+                            fontFamily: 'Yekan',
+                            fontSize: 16,
                             height: 1.4,
                           ),
                           maxLines: 1,
@@ -531,11 +540,19 @@ class _ConnectionPageState extends State<ConnectionPage>
                     isOutline: true,
                     onTap: () => onConnect(isFileTransfer: true),
                     text: "Transfer file",
+                    textSize: 16,
+                    padding: 8,
                   ),
                   const SizedBox(
                     width: 17,
                   ),
-                  Button(onTap: onConnect, text: "Connect"),
+                  Button(
+                    onTap: onConnect,
+                    text: "Connect",
+                    textSize: 16,
+                    padding: 8,
+                    minWidth: 100,
+                  ),
                 ],
               ),
             )
