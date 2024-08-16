@@ -3216,6 +3216,27 @@ Widget loadLogo() {
       });
 }
 
+Widget loadHeaderLogo() {
+  return FutureBuilder<ByteData>(
+      future: rootBundle.load('assets/header-logo.png'),
+      builder: (BuildContext context, AsyncSnapshot<ByteData> snapshot) {
+        if (snapshot.hasData) {
+          final image = Image.asset(
+            'assets/header-logo.png',
+            fit: BoxFit.contain,
+            errorBuilder: (ctx, error, stackTrace) {
+              return Container();
+            },
+          );
+          return Container(
+            constraints: BoxConstraints(maxWidth: 300, maxHeight: 60),
+            child: image,
+          ).marginOnly(left: 12, right: 12, top: 12);
+        }
+        return const Offstage();
+      });
+}
+
 Widget loadIcon(double size) {
   return Image.asset('assets/icon.png',
       width: size,

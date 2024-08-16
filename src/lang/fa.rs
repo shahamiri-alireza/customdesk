@@ -1,6 +1,7 @@
 lazy_static::lazy_static! {
 pub static ref T: std::collections::HashMap<&'static str, &'static str> =
     [
+        ("app_name", "نیکان دسک"),
         ("Status", "وضعیت"),
         ("Your Desktop", "دسکتاپ شما"),
         ("desk_tip", "دسکتاپ شما با این شناسه و رمز عبور قابل دسترسی است"),
@@ -145,7 +146,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("Failed to make direct connection to remote desktop", "اتصال مستقیم به دسکتاپ راه دور انجام نشد"),
         ("Set Password", "تنظیم رمزعبور"),
         ("OS Password", "رمز عبور سیستم عامل"),
-        ("install_tip", "لطفا برنامه را نصب کنید UAC و جلوگیری از خطای NikanDesk برای راحتی در استفاده از نرم افزار"),
+        ("install_tip", "برای راحتی استفاده از نرم افزار و جلوگیری از بروز خطا نرم افزار را نصب کنید"),
         ("Click to upgrade", "برای ارتقا کلیک کنید"),
         ("Click to download", "برای دانلود کلیک کنید"),
         ("Click to update", "برای به روز رسانی کلیک کنید"),

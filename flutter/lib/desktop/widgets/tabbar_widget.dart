@@ -406,14 +406,14 @@ class DesktopTab extends StatelessWidget {
                           child: loadIcon(16),
                         ),
                         Offstage(
-                            offstage: !showTitle,
-                            child: const Text(
-                              "RustDesk",
+                            offstage: false,
+                            child: Text(
+                              translate("app_name"),
                               style: TextStyle(fontSize: 13),
-                            ).marginOnly(right: 2))
+                            ).marginOnly(right: 8))
                       ]).marginOnly(
-                        right: 5,
-                        left: 10,
+                        left: 5,
+                        right: 10,
                       ),
                     ),
                     Expanded(

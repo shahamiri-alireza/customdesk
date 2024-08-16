@@ -82,7 +82,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
       //   ),
       Align(
         alignment: Alignment.center,
-        child: loadLogo(),
+        child: loadHeaderLogo(),
       ),
       buildTip(context),
       if (!isOutgoingOnly) buildIDBoard(context),
