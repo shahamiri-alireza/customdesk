@@ -3,7 +3,7 @@ description: Your Remote Desktop Software
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -49,7 +49,7 @@ dependencies:
   image_picker: ^0.8.5
   image: ^4.0.17
   back_button_interceptor: ^6.0.1
-  flutter_rust_bridge: "1.80.1"
+  flutter_rust_bridge: '1.80.1'
   window_manager:
     git:
       url: https://github.com/rustdesk-org/window_manager
@@ -116,14 +116,14 @@ dev_dependencies:
 
 # rerun: flutter pub run flutter_launcher_icons
 flutter_icons:
-  image_path: "../res/icon.png"
+  image_path: '../res/icon.png'
   remove_alpha_ios: true
   android: true
   ios: true
   windows:
     generate: true
   macos:
-    image_path: "../res/mac-icon.png"
+    image_path: '../res/mac-icon.png'
     generate: true
   linux: true
   web:
@@ -156,7 +156,22 @@ flutter:
     - family: AddressBook
       fonts:
         - asset: assets/address_book.ttf
-
+    - family: Yekan
+      fonts:
+        - asset: assets/fonts/yekan/iranyekanwebthinfanum.ttf
+          weight: 100
+        - asset: assets/fonts/yekan/iranyekanweblightfanum.ttf
+          weight: 300
+        - asset: assets/fonts/yekan/iranyekanwebregularfanum.ttf
+          weight: 400
+        - asset: assets/fonts/yekan/iranyekanwebmediumfanum.ttf
+          weight: 500
+        - asset: assets/fonts/yekan/iranyekanwebboldfanum.ttf
+          weight: 700
+        - asset: assets/fonts/yekan/iranyekanwebextraboldfanum.ttf
+          weight: 800
+        - asset: assets/fonts/yekan/iranyekanwebextrablackfanum.ttf
+          weight: 900
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

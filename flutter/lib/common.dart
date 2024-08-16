@@ -342,6 +342,7 @@ class MyTheme {
   );
 
   static ThemeData lightTheme = ThemeData(
+    fontFamily: 'Yekan',
     // https://stackoverflow.com/questions/77537315/after-upgrading-to-flutter-3-16-the-app-bar-background-color-button-size-and
     useMaterial3: false,
     brightness: Brightness.light,
@@ -438,6 +439,7 @@ class MyTheme {
     ],
   );
   static ThemeData darkTheme = ThemeData(
+    fontFamily: 'Yekan',
     useMaterial3: false,
     brightness: Brightness.dark,
     hoverColor: Color.fromARGB(255, 45, 46, 53),
