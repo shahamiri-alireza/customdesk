@@ -50,11 +50,11 @@ class _TabInfo {
 enum SettingsTabKey {
   general,
   safety,
-  network,
+  // network,
   display,
-  plugin,
-  account,
-  about,
+  // plugin,
+  // account,
+  // about,
 }
 
 class DesktopSettingPage extends StatefulWidget {
@@ -63,12 +63,12 @@ class DesktopSettingPage extends StatefulWidget {
     SettingsTabKey.general,
     if (!bind.isOutgoingOnly() && !bind.isDisableSettings())
       SettingsTabKey.safety,
-    if (!bind.isDisableSettings()) SettingsTabKey.network,
+    // if (!bind.isDisableSettings()) SettingsTabKey.network,
     if (!bind.isIncomingOnly()) SettingsTabKey.display,
-    if (!isWeb && !bind.isIncomingOnly() && bind.pluginFeatureIsEnabled())
-      SettingsTabKey.plugin,
-    if (!bind.isDisableAccount()) SettingsTabKey.account,
-    SettingsTabKey.about,
+    // if (!isWeb && !bind.isIncomingOnly() && bind.pluginFeatureIsEnabled())
+    //   SettingsTabKey.plugin,
+    // if (!bind.isDisableAccount()) SettingsTabKey.account,
+    // SettingsTabKey.about,
   ];
 
   DesktopSettingPage({Key? key, required this.initialTabkey}) : super(key: key);
@@ -145,26 +145,26 @@ class _DesktopSettingPageState extends State<DesktopSettingPage>
           settingTabs.add(_TabInfo(tab, 'Security',
               Icons.enhanced_encryption_outlined, Icons.enhanced_encryption));
           break;
-        case SettingsTabKey.network:
-          settingTabs
-              .add(_TabInfo(tab, 'Network', Icons.link_outlined, Icons.link));
-          break;
+        // case SettingsTabKey.network:
+        //   settingTabs
+        //       .add(_TabInfo(tab, 'Network', Icons.link_outlined, Icons.link));
+        //   break;
         case SettingsTabKey.display:
           settingTabs.add(_TabInfo(tab, 'Display',
               Icons.desktop_windows_outlined, Icons.desktop_windows));
           break;
-        case SettingsTabKey.plugin:
-          settingTabs.add(_TabInfo(
-              tab, 'Plugin', Icons.extension_outlined, Icons.extension));
-          break;
-        case SettingsTabKey.account:
-          settingTabs.add(
-              _TabInfo(tab, 'Account', Icons.person_outline, Icons.person));
-          break;
-        case SettingsTabKey.about:
-          settingTabs
-              .add(_TabInfo(tab, 'About', Icons.info_outline, Icons.info));
-          break;
+        // case SettingsTabKey.plugin:
+        //   settingTabs.add(_TabInfo(
+        //       tab, 'Plugin', Icons.extension_outlined, Icons.extension));
+        //   break;
+        // case SettingsTabKey.account:
+        //   settingTabs.add(
+        //       _TabInfo(tab, 'Account', Icons.person_outline, Icons.person));
+        //   break;
+        // case SettingsTabKey.about:
+        //   settingTabs
+        //       .add(_TabInfo(tab, 'About', Icons.info_outline, Icons.info));
+        //   break;
       }
     }
     return settingTabs;
@@ -174,12 +174,12 @@ class _DesktopSettingPageState extends State<DesktopSettingPage>
     final children = [
       _General(),
       if (!bind.isOutgoingOnly() && !bind.isDisableSettings()) _Safety(),
-      if (!bind.isDisableSettings()) _Network(),
+      // if (!bind.isDisableSettings()) _Network(),
       if (!bind.isIncomingOnly()) _Display(),
-      if (!isWeb && !bind.isIncomingOnly() && bind.pluginFeatureIsEnabled())
-        _Plugin(),
-      if (!bind.isDisableAccount()) _Account(),
-      _About(),
+      // if (!isWeb && !bind.isIncomingOnly() && bind.pluginFeatureIsEnabled())
+      //   _Plugin(),
+      // if (!bind.isDisableAccount()) _Account(),
+      // _About(),
     ];
     return children;
   }
@@ -320,7 +320,7 @@ class _GeneralState extends State<_General> {
             record(context),
             WaylandCard(),
             _Card(title: 'Language', children: [language()]),
-            other()
+            // other()
           ],
         ).marginOnly(bottom: _kListViewBottomMargin));
   }
@@ -643,10 +643,10 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                   absorbing: locked,
                   child: Column(children: [
                     permissions(context),
-                    password(context),
-                    _Card(title: '2FA', children: [tfa()]),
-                    _Card(title: 'ID', children: [changeId()]),
-                    more(context),
+                    // password(context),
+                    // _Card(title: '2FA', children: [tfa()]),
+                    // _Card(title: 'ID', children: [changeId()]),
+                    // more(context),
                   ]),
                 ),
               ],
