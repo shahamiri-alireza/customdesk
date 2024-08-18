@@ -667,7 +667,7 @@ class _ImagePaintState extends State<ImagePaint> {
       if (true) {
         // both "textureId.value != -1" and "true" seems ok
         children.add(Positioned(
-          right: (displays[i].x - rect.right) * s + offset.dx,
+          left: (displays[i].x - rect.left) * s + offset.dx,
           top: (displays[i].y - rect.top) * s + offset.dy,
           width: displays[i].width * s,
           height: displays[i].height * s,

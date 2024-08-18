@@ -283,7 +283,7 @@ class _DraggableState extends State<Draggable> {
     } else if (_position.dx + offset.dx < 0) {
       x = 0;
     } else {
-      x = _position.dx + offset.dx;
+      x = _position.dx - offset.dx;
     }
 
     if (_position.dy + offset.dy + widget.height > size.height) {
@@ -344,7 +344,7 @@ class _DraggableState extends State<Draggable> {
     return Stack(children: [
       Positioned(
           top: _position.dy,
-          left: _position.dx,
+          right: _position.dx,
           width: widget.width,
           height: widget.height,
           child: widget.builder(context, onPanUpdate))
@@ -428,7 +428,7 @@ class IOSDraggableState extends State<IOSDraggable> {
     return Stack(
       children: [
         Positioned(
-          left: _position.dx,
+          right: _position.dx,
           top: _position.dy,
           child: GestureDetector(
             onPanUpdate: (details) {
@@ -464,7 +464,7 @@ class QualityMonitor extends StatelessWidget {
             flex: 8,
             child: AutoSizeText(info,
                 style: TextStyle(color: Color.fromARGB(255, 210, 210, 210)),
-                textAlign: TextAlign.right,
+                textAlign: TextAlign.left,
                 maxLines: 1)),
         Spacer(flex: 1),
         Expanded(

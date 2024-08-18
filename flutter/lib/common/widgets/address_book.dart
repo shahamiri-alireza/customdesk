@@ -257,6 +257,8 @@ class _AddressBookState extends State<AddressBook> {
             left: 8,
           ),
           child: TextFormField(
+            textDirection: TextDirection.ltr,
+            textAlign: TextAlign.end,
             expands: true,
             maxLines: null,
             controller: textEditingController,

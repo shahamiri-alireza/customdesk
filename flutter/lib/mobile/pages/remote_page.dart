@@ -475,6 +475,8 @@ class _RemotePageState extends State<RemotePage> {
               child: !_showEdit
                   ? Container()
                   : TextFormField(
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.end,
                       textInputAction: TextInputAction.newline,
                       autocorrect: false,
                       enableSuggestions: false,

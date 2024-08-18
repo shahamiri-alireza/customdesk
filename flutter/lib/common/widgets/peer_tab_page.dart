@@ -131,7 +131,7 @@ class _PeerTabPageState extends State<PeerTabPage>
               ],
             )),
           ),
-        ).paddingOnly(right: (isDesktop || isWebDesktop) ? 12 : 0),
+        ).paddingOnly(left: (isDesktop || isWebDesktop) ? 12 : 0),
         _createPeersView(),
       ],
     );
@@ -454,7 +454,7 @@ class _PeerTabPageState extends State<PeerTabPage>
           showToast(translate('Successful'));
         },
         child: Icon(PeerTabModel.icons[PeerTabIndex.fav.index]),
-      ).marginOnly(left: isMobile ? 11 : 6),
+      ).marginOnly(right: isMobile ? 11 : 6),
     );
   }
 
@@ -475,7 +475,7 @@ class _PeerTabPageState extends State<PeerTabPage>
           model.setMultiSelectionMode(false);
         },
         child: Icon(PeerTabModel.icons[PeerTabIndex.ab.index]),
-      ).marginOnly(left: isMobile ? 11 : 6),
+      ).marginOnly(right: isMobile ? 11 : 6),
     );
   }
 
@@ -498,7 +498,7 @@ class _PeerTabPageState extends State<PeerTabPage>
                 });
               },
               child: Icon(Icons.tag))
-          .marginOnly(left: isMobile ? 11 : 6),
+          .marginOnly(right: isMobile ? 11 : 6),
     );
   }
 
@@ -521,7 +521,7 @@ class _PeerTabPageState extends State<PeerTabPage>
           model.selectAll();
         },
         child: Icon(Icons.select_all),
-      ).marginOnly(left: 6),
+      ).marginOnly(right: 6),
     );
   }
 
@@ -534,7 +534,7 @@ class _PeerTabPageState extends State<PeerTabPage>
               model.setMultiSelectionMode(false);
             },
             child: Icon(Icons.clear))
-        .marginOnly(left: 6);
+        .marginOnly(right: 6);
   }
 
   Widget _toggleTags() {
@@ -678,7 +678,7 @@ class _PeerSearchBarState extends State<PeerSearchBar> {
         : _hoverAction(
             context: context,
             toolTip: translate('Search'),
-            padding: const EdgeInsets.only(right: 2),
+            padding: const EdgeInsets.only(left: 2),
             onTap: () {
               setState(() {
                 drawer = true;
@@ -746,8 +746,8 @@ class _PeerSearchBarState extends State<PeerSearchBar> {
                     ),
                     // Icon(Icons.close),
                     IconButton(
-                      alignment: Alignment.centerRight,
-                      padding: const EdgeInsets.only(right: 2),
+                      alignment: Alignment.centerLeft,
+                      padding: const EdgeInsets.only(left: 2),
                       onPressed: () {
                         setState(() {
                           peerSearchTextController.clear();
@@ -844,9 +844,14 @@ class _PeerViewDropdownState extends State<PeerViewDropdown> {
           size: 18,
         ),
         onTapDown: (details) {
-          final x = details.globalPosition.dx;
+          final x = details.localPosition.dx;
           final y = details.globalPosition.dy;
-          menuPos = RelativeRect.fromLTRB(x, y, x, y);
+          menuPos = RelativeRect.fromLTRB(
+            0,
+            y,
+            MediaQuery.of(context).size.width - x,
+            0,
+          );
         },
         onTap: () => showMenu(
               context: context,

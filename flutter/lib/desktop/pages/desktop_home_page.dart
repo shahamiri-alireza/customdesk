@@ -227,6 +227,8 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                       },
                       child: TextFormField(
                         controller: model.serverId,
+                        textDirection: TextDirection.ltr,
+                        textAlign: TextAlign.end,
                         readOnly: true,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -314,6 +316,8 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                           },
                           child: TextFormField(
                             controller: model.serverPasswd,
+                            textDirection: TextDirection.ltr,
+                            textAlign: TextAlign.end,
                             readOnly: true,
                             decoration: InputDecoration(
                               border: InputBorder.none,

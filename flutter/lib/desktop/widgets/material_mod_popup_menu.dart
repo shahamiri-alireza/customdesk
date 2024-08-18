@@ -720,14 +720,15 @@ class _PopupMenuRouteLayout extends SingleChildLayoutDelegate {
     //   x = position.left;
     // } else {
     // Menu button is equidistant from both edges, so grow in reading direction.
-    switch (textDirection) {
-      case TextDirection.rtl:
-        x = size.width - position.right - childSize.width;
-        break;
-      case TextDirection.ltr:
-        x = position.left;
-        break;
-    }
+    // switch (textDirection) {
+    //   case TextDirection.rtl:
+    //     x = size.width - position.right - childSize.width;
+    //     break;
+    //   case TextDirection.ltr:
+    //     x = position.left;
+    //     break;
+    // }
+    x = position.left;
     //}
     final Offset wantedPosition = Offset(x, y);
     final Offset originCenter = position.toRect(Offset.zero & size).center;
@@ -752,14 +753,20 @@ class _PopupMenuRouteLayout extends SingleChildLayoutDelegate {
   Offset _fitInsideScreen(Rect screen, Size childSize, Offset wantedPosition) {
     double x = wantedPosition.dx;
     double y = wantedPosition.dy;
-    // Avoid going outside an area defined as the rectangle 8.0 pixels from the
-    // edge of the screen in every direction.
-    if (x < screen.left + _kMenuScreenPadding + padding.left) {
-      x = screen.left + _kMenuScreenPadding + padding.left;
+
+    // Determine the appropriate horizontal padding based on the text direction.
+    final double leftPadding = padding.right;
+    final double rightPadding = padding.left;
+
+    // Ensure the popup does not go outside the screen boundaries, considering RTL.
+    if (x < screen.left + _kMenuScreenPadding + leftPadding) {
+      x = screen.left + _kMenuScreenPadding + leftPadding;
     } else if (x + childSize.width >
-        screen.right - _kMenuScreenPadding - padding.right) {
-      x = screen.right - childSize.width - _kMenuScreenPadding - padding.right;
+        screen.right - _kMenuScreenPadding - rightPadding) {
+      x = screen.right - childSize.width - _kMenuScreenPadding - rightPadding;
     }
+
+    // Vertical position adjustments (same for both LTR and RTL).
     if (y < screen.top + _kMenuScreenPadding + padding.top) {
       y = _kMenuScreenPadding + padding.top;
     } else if (y + childSize.height >

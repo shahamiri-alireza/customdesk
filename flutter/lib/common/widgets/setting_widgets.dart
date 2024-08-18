@@ -100,7 +100,7 @@ customImageQualityWidget(
               children: [
                 Expanded(
                   child: Align(
-                    alignment: Alignment.centerRight,
+                    alignment: Alignment.centerLeft,
                     child: Checkbox(
                       value: moreQualityChecked.value,
                       onChanged: onMoreChanged,
@@ -227,8 +227,7 @@ List<(String, String)> otherDefaultSettings() {
     if ((isDesktop || isWebDesktop)) ('Zoom cursor', kOptionZoomCursor),
     ('Show quality monitor', kOptionShowQualityMonitor),
     ('Mute', kOptionDisableAudio),
-    if (isDesktop)
-      ('Enable file copy and paste', kOptionEnableFileCopyPaste),
+    if (isDesktop) ('Enable file copy and paste', kOptionEnableFileCopyPaste),
     ('Disable clipboard', kOptionDisableClipboard),
     ('Lock after session end', kOptionLockAfterSessionEnd),
     ('Privacy mode', kOptionPrivacyMode),

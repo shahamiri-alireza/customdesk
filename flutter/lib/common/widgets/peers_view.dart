@@ -214,7 +214,7 @@ class _PeersViewState extends State<_PeersView> with WindowListener {
                           itemCount: peers.length,
                           itemBuilder: (BuildContext context, int index) {
                             return buildOnePeer(peers[index]).marginOnly(
-                                right: space,
+                                left: space,
                                 top: index == 0 ? 0 : space / 2,
                                 bottom: space / 2);
                           }),
