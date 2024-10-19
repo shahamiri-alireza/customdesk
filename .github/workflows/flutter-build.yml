@@ -179,6 +179,14 @@ jobs:
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
+      - name: List files in Release directory
+        run: |
+          ls ./Package/bin/x64/Release/en-us/
+
+      - name: List all files in Package/bin directory
+        run: |
+          ls ./Package/bin -R
+
       - name: Build msi
         if: env.UPLOAD_ARTIFACT == 'true'
         run: |
