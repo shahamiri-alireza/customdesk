@@ -181,6 +181,16 @@ jobs:
 
       - name: List files in Release directory
         run: |
+          ls ./
+          echo ############################################\n\n\n\n
+          ls ./Package
+          echo ############################################\n\n\n\n
+          ls ./Package/bin
+          echo ############################################\n\n\n\n
+          ls ./Package/bin/x64
+          echo ############################################\n\n\n\n
+          ls ./Package/bin/x64/Release
+          echo ############################################\n\n\n\n
           ls ./Package/bin/x64/Release/en-us/
 
       - name: List all files in Package/bin directory
