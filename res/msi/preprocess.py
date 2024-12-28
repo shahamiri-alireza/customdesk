@@ -44,7 +44,7 @@ def make_parser():
         "-d",
         "--dist-dir",
         type=str,
-        default="../../rustdesk",
+        default="../../nikandesk",
         help="The dist direcotry to install.",
     )
     parser.add_argument(

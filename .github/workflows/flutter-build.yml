@@ -95,7 +95,7 @@ jobs:
       - name: Install flutter rust bridge deps
         run: |
           git config --global core.longpaths true
-          cargo install flutter_rust_bridge_codegen --version ${{ env.FLUTTER_RUST_BRIDGE_VERSION }} --features "uuid"
+          cargo install flutter_rust_bridge_codegen --version ${{ env.FLUTTER_RUST_BRIDGE_VERSION }} --features "uuid" --locked
           Push-Location flutter ; flutter pub get ; Pop-Location
           ~/.cargo/bin/flutter_rust_bridge_codegen --rust-input ./src/flutter_ffi.rs --dart-output ./flutter/lib/generated_bridge.dart
 
@@ -117,11 +117,7 @@ jobs:
           python3 .\build.py --portable --hwcodec --flutter --vram --skip-portable-pack
           Remove-Item -Path usbmmidd_v2\Win32 -Recurse
           Remove-Item -Path "usbmmidd_v2\deviceinstaller64.exe", "usbmmidd_v2\deviceinstaller.exe", "usbmmidd_v2\usbmmidd.bat"
-          pwd
-          ls
-          echo ----------
           mkdir ./nikandesk
-          ls
           mv ./flutter/build/windows/x64/runner/Release ./nikandesk
           mv -Force .\usbmmidd_v2 ./nikandesk
 
@@ -168,13 +164,10 @@ jobs:
         run: |
           pushd ./libs/portable
           pip3 install -r requirements.txt
-          pwd
-          ls
-          echo ----------
           python3 ./generate.py -f ../../nikandesk/ -o . -e ../../nikandesk/nikandesk.exe
           popd
           mkdir -p ./SignOutput
-          mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/nikandesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
+          mv ./target/release/nikandesk-portable-packer.exe ./SignOutput/nikandesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
