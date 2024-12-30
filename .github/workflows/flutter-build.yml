@@ -167,13 +167,13 @@ jobs:
           python3 ./generate.py -f ../../nikandesk/ -o . -e ../../nikandesk/nikandesk.exe
           popd
           mkdir -p ./SignOutput
-          echo "#################### `n`n`n"
+          printf '############## \n \n \n'
           ls ./
-          echo "#################### `n`n`n"
+          printf '############## \n \n \n'
           ls ./target
-          echo "#################### `n`n`n"
+          printf '############## \n \n \n'
           ls ./target/release
-          echo "#################### `n`n`n"
+          printf '############## \n \n \n'
           mv ./target/release/nikandesk-portable-packer.exe ./SignOutput/nikandesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
       - name: Add MSBuild to PATH
