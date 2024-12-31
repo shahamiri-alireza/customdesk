@@ -1,11 +1,11 @@
 [package]
-name = "rustdesk"
+name = "nikandesk"
 version = "1.2.4"
-authors = ["rustdesk <info@rustdesk.com>"]
+authors = ["Nikan"]
 edition = "2021"
 build= "build.rs"
-description = "RustDesk Remote Desktop"
-default-run = "rustdesk"
+description = "Nikan Remote Desktop"
+default-run = "nikandesk"
 rust-version = "1.75"
 
 [lib]
