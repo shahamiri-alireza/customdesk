@@ -487,7 +487,7 @@ if __name__ == "__main__":
     if not gen_pre_vars(args, dist_dir):
         sys.exit(-1)
 
-    if app_name != "RustDesk":
+    if app_name != "NikanDesk":
         replace_component_guids_in_wxs()
 
     if not gen_upgrade_info():
