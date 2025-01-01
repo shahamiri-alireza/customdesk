@@ -63,7 +63,7 @@ def make_parser():
         "-c", "--custom", action="store_true", help="Is custom client", default=False
     )
     parser.add_argument(
-        "--app-name", type=str, default="NikanDesk", help="The app name."
+        "--app-name", type=str, default="nikandesk", help="The app name."
     )
     parser.add_argument(
         "-v", "--version", type=str, default="", help="The app version."
@@ -441,7 +441,7 @@ def init_global_vars(dist_dir, app_name, args):
 
 
 def update_license_file(app_name):
-    if app_name == "NikanDesk":
+    if app_name == "nikandesk":
         return
     license_file = Path(sys.argv[0]).parent.joinpath("Package/License.rtf")
     with open(license_file, "r") as f:
@@ -487,7 +487,7 @@ if __name__ == "__main__":
     if not gen_pre_vars(args, dist_dir):
         sys.exit(-1)
 
-    if app_name != "NikanDesk":
+    if app_name != "nikandesk":
         replace_component_guids_in_wxs()
 
     if not gen_upgrade_info():
