@@ -191,6 +191,9 @@ jobs:
         if: env.UPLOAD_ARTIFACT == 'true'
         run: |
           pushd ./res/msi
+          printf '############## \n \n \n'
+          ls ../../nikandesk
+          printf '############## \n \n \n'
           python preprocess.py --arp -d ../../nikandesk
           nuget restore msi.sln
           msbuild msi.sln -p:Configuration=Release -p:Platform=x64 /p:TargetVersion=Windows10
